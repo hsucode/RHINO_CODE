@@ -1,25 +1,20 @@
+
 import rhinoscriptsyntax as rs
 
 def GetObjArea():
     "Calculate the length of one or more curves"
     # Get the curve objects
-    arrObjects = rs.GetObjects("Select Objects", rs.filter.surface, True, True)
+    arrObjects = rs.GetObjects("Select Objects", rs.filter.curve, True, True)
     if( arrObjects==None ): return
     rs.UnselectObjects(arrObjects)
 
-    objArea = 0.0
+    objArea = 0.0 
     count  = 0
     for object in arrObjects:
-        if rs.IsSurface(object):
+        if rs.IsCurve(object):
             #Get the curve objArea
-            #objArea += rs.Area(object)
-            #count += 1
-            objArea = rs.Area(object)
-            print objArea
-            if objArea<18000.000:
-                rs.DeleteObject(object)
-            else:
-                print 'ke'
+            length =100.0 # = rs.GetReal("Length to extend", 30.0)
+            if length: rs.ExtendCurveLength( object, 2, 2, length )
     
     if (count>0):
         print "Surface selected:", count, " Total Area:", objArea
