@@ -1,7 +1,7 @@
 
 import rhinoscriptsyntax as rs
 
-def GetObjArea():
+def sweep_one():
     "Calculate the length of one or more curves"
     # Get the curve objects
 
@@ -18,4 +18,4 @@ def GetObjArea():
 # script instead of being used as a module by some other python script
 # This allows us to use the module which ever way we want.
 if( __name__ == "__main__" ):
-    GetObjArea()
+    sweep_one()
