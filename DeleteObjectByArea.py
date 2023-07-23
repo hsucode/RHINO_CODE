@@ -16,10 +16,10 @@ def GetObjArea():
             #count += 1
             objArea = rs.Area(object)
             print objArea
-            if objArea<20000.000:
+            if objArea<45000.000 and objArea>0:
                 rs.DeleteObject(object)
             else:
-                print 'ke'
+                print 'KO'
     
     if (count>0):
         print "Surface selected:", count, " Total Area:", objArea
